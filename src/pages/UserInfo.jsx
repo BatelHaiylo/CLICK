@@ -20,10 +20,8 @@ export default function UserInfo() {
   };
 
   return (
-    <Box display="flex" justifyContent="center" marginLeft="5%">
       <LstItem data={user}>
         <Btn clickHandler={handleClick} title="back" />
       </LstItem>
-    </Box>
   );
 }

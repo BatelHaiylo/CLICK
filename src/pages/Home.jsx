@@ -1,4 +1,4 @@
-import { Box, Typography, List } from "@mui/material";
+import { Typography, List } from "@mui/material";
 import { useContext } from "react";
 import LstItem from "../components/LstItem";
 import { usersContext } from "../context/UsersProvider";
@@ -27,15 +27,14 @@ export default function Home() {
   };
 
   return (
-    <Box display="flex" justifyContent="center" marginLeft="5%">
-    
+    <>
       {JSON.parse(localStorage.getItem("toggle")) === true ? (
         <List
           sx={{
-            width: "100%",
             bgcolor: "background.paper",
             listStyleType: "disc",
           }}
+          
         >
           {womansArr.sort(sortAlphabetically)?.map((user, i) => (
             <LstItem key={i} data={user}   >
@@ -44,9 +43,8 @@ export default function Home() {
           ))}
         </List>
       ) : (
-        <Typography>Click on the button above to see the users list</Typography>
+        <Typography textAlign="center" >Click on the button above to see the users list</Typography>
       )}
-    
-    </Box>
+      </>
   );
 }
