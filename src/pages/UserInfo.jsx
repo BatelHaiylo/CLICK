@@ -3,7 +3,7 @@ import { getUserById } from "../service/users";
 import { useEffect, useState } from "react";
 import LstItem from "../components/LstItem";
 import Btn from "../components/Btn";
-import { Box } from "@mui/material";
+import { Box, ListItem, ListItemText } from "@mui/material";
 
 export default function UserInfo() {
   const [user, setUser] = useState({});
@@ -15,14 +15,23 @@ export default function UserInfo() {
       .then((res) => setUser(res))
       .catch((error) => console.log(error));
   }, [id]);
-  
+
   const handleClick = () => {
     navigate("/");
   };
 
   return (
-      <LstItem data={user}>
+            <ListItem>
+      <ListItemText
+        id={id}
+        primary={`
+        user name: ${user["name"]}  
+        status: ${user["status"]} 
+        user email: ${user["email"]} 
+        gender: ${user["gender"]}`}
+        sx={{ color: user.status === "active" ? "green" : "red", display: "list-item" } }
+      />
         <Btn clickHandler={handleClick} title="back" />
-      </LstItem>
+      </ListItem>
   );
 }
