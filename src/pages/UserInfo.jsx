@@ -15,7 +15,8 @@ export default function UserInfo() {
       .then((res) => setUser(res))
       .catch((error) => console.log(error));
   }, [id]);
-  const handleClick = (id) => {
+  
+  const handleClick = () => {
     navigate("/");
   };
 
