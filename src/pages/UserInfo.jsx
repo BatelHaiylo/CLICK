@@ -1,7 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { getUserById } from "../service/users";
 import { useEffect, useState } from "react";
-import LstItem from "../components/LstItem";
 import Btn from "../components/Btn";
 import { Box, ListItem, ListItemText } from "@mui/material";
 
